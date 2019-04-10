@@ -9,8 +9,10 @@ class CharacterListView extends React.Component {
     this.props.getCharacters();
   }
   render() {
-    if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
+    if (this.props.isFetching) {
+      return(
+        <h1>Retrieving Character Data...</h1>
+      );
     }
     return (
       <div className="CharactersList_wrapper">
@@ -22,7 +24,7 @@ class CharacterListView extends React.Component {
 
 const mapStateToProps = state => ({
   characters: state.charsReducer.characters,
-  fetching: state.charsReducer.isFetching
+  isFetching: state.charsReducer.isFetching
 });
 
 export default connect(
